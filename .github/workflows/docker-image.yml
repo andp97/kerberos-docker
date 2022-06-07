@@ -6,14 +6,15 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  REGISTRY: ghcr.io
+
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v3.0.0
+      - name: Build the Docker image
+        uses: actions/checkout@v3
+      
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v3.0.0
